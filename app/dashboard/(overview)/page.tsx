@@ -8,7 +8,7 @@ import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton, } from '@/
  
 export default async function Page() {
     const cardData = await fetchCardData();
-    const { numberOfCustomers, numberOfInvoices, totalPaidInvoices, totalPendingInvoices} = cardData;
+    const { numberOfCustomers, numberOfInvoices, totalCompletedInvoices, totalPendingInvoices} = cardData;
     return (
         <main>
         <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>

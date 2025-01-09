@@ -19,7 +19,7 @@ export async function fetchRevenue() {
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-    console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch paid after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -68,13 +68,13 @@ export async function fetchCardData() {
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
+    const totalCompletedInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
     return {
       numberOfCustomers,
       numberOfInvoices,
-      totalPaidInvoices,
+      totalCompletedInvoices,
       totalPendingInvoices,
     };
   } catch (error) {
